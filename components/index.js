@@ -8,6 +8,4 @@ export { SparkRButtonDanger } from './buttons/spark-r-button-danger.js';
 export { SparkSlider } from './sliders/spark-slider.js';
 export { SparkBaseDialog } from './dialog/spark-base-dialog.js';
 export { SparkDialog } from './dialog/spark-dialog.js';
-export { SparkDialogAlert } from './dialog/spark-dialog-alert.js';
-export { SparkDialogConfirm } from './dialog/spark-dialog-confirm.js';
 export { SparkBadge } from './badge/spark-badge.js';

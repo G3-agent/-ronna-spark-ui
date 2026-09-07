@@ -1,6 +1,6 @@
 {
   "name": "@ronna/spark-ui",
-  "version": "0.3.8",
+  "version": "0.3.6",
   "description": "Lightweight, elegant Lit web components for modern web interfaces.",
   "type": "module",
   "main": "./public/cdn/v1/index.js",
@@ -16,8 +16,6 @@
     "./button-danger": "./public/cdn/v1/spark-r-button-danger.js",
     "./slider": "./public/cdn/v1/spark-slider.js",
     "./dialog": "./public/cdn/v1/spark-dialog.js",
-    "./dialog-alert": "./public/cdn/v1/spark-dialog-alert.js",
-    "./dialog-confirm": "./public/cdn/v1/spark-dialog-confirm.js",
     "./badge": "./public/cdn/v1/spark-badge.js"
   },
   "files": [

@@ -37,12 +37,8 @@ import '@ronna/spark-ui/code-block';
 import '@ronna/spark-ui/notifier';
 import '@ronna/spark-ui/profile-card';
 import '@ronna/spark-ui/button';
-import '@ronna/spark-ui/button-success';
-import '@ronna/spark-ui/button-danger';
 import '@ronna/spark-ui/slider';
 import '@ronna/spark-ui/dialog';
-import '@ronna/spark-ui/dialog-alert';
-import '@ronna/spark-ui/dialog-confirm';
 ```
 
 ## Components Reference
@@ -53,13 +49,9 @@ import '@ronna/spark-ui/dialog-confirm';
 | `<card-element>` | A basic card container with an optional hide/show (collapsible) button. |
 | `<profile-card>` | An extended card element that displays user profile details. |
 | `<spark-notifier>` | A lightweight notification toast for displaying temporary messages. |
-| `<spark-r-button>` | A round button with support for custom events, sizes, and expanded variants. |
-| `<spark-r-button-success>` | Dedicated success variant button component. |
-| `<spark-r-button-danger>` | Dedicated danger variant button component. |
+| `<spark-r-button>` | A simple round button with support for custom events and variants. |
 | `<spark-slider>` | An accessible, fully configurable range slider. |
-| `<spark-dialog>` | An accessible modal dialog with slots for title, body, footer, and support for sizes/types. |
-| `<spark-dialog-alert>` | Specialized alert dialog component. |
-| `<spark-dialog-confirm>` | Specialized confirmation dialog component. |
+| `<spark-dialog>` | An accessible modal dialog with slots for title, body, and footer. |
 
 ---
 
@@ -108,22 +100,21 @@ Toast notification component supporting auto-dismiss timers, visual progress ind
 </spark-notifier>
 ```
 
-### 4. Spark Button (`<spark-r-button>`, `<spark-r-button-success>`, `<spark-r-button-danger>`)
+### 4. Spark Button (`<spark-r-button>`)
 
-Stylized fully-rounded button component supporting multiple color variants, sizes, states, and event wrapping.
+Stylized fully-rounded button component supporting multiple color variants, states, and event wrapping.
 
 - **Attributes / Properties:**
-  - `variant` (string): `'primary'`, `'secondary'`, `'danger'`, `'outline'`, `'success'`, or `'warning'` (default: `'primary'`).
-  - `size` (string): `'sm'`, `'md'`, or `'lg'` (default: `'md'`).
+  - `variant` (string): `'primary'`, `'secondary'`, or `'danger'` (default: `'primary'`).
   - `disabled` (boolean): Disables user interaction.
   - `type` (string): Standard HTML button type (`'button'`, `'submit'`, `'reset'`).
 - **Events:**
   - `spark-click`: Custom click event carrying the variant and original event details across shadow DOM boundaries.
 
 ```html
-<spark-r-button-success size="lg">
+<spark-r-button variant="primary">
   Confirm Action
-</spark-r-button-success>
+</spark-r-button>
 ```
 
 ### 5. Spark Slider (`<spark-slider>`)
@@ -144,35 +135,39 @@ Fully accessible range slider featuring live formatted value outputs and compreh
 <spark-slider label="Volume Level" min="0" max="100" value="75"></spark-slider>
 ```
 
-### 6. Spark Dialog (`<spark-dialog>`, `<spark-dialog-alert>`, `<spark-dialog-confirm>`)
+### 6. Spark Dialog (`<spark-dialog>`)
 
-Robust modal dialog window providing structured slots for title, body content, footers, and multiple types/sizes.
-
-- **Attributes / Properties:**
-  - `type` (string): `'default'`, `'alert'`, or `'confirm'` (default: `'default'`).
-  - `size` (string): `'sm'`, `'md'`, or `'lg'` (default: `'md'`).
+Robust modal dialog window providing structured slots for title, body content, and footers.
 
 ```html
-<spark-dialog-confirm id="welcome-dialog" title="Welcome" size="lg">
+<spark-dialog id="welcome-dialog" title="Welcome">
   <p>This content appears inside the dialog body.</p>
   <spark-r-button slot="footer" id="close-dialog" variant="secondary">
     Close
   </spark-r-button>
-</spark-dialog-confirm>
+</spark-dialog>
 
 <script>
   const dialog = document.getElementById('welcome-dialog');
+  
+  // Open the dialog programmatically
   dialog.openDialog();
 </script>
 ```
+
+**Behavior & Options:**
+- Automatically closes when the close button is clicked, the `Escape` key is pressed, or the backdrop is clicked.
+- Set `close-on-backdrop="false"` to prevent dismissal when clicking outside the dialog window.
+- Can be controlled declaratively via the `open` property or attribute.
 
 ## CDN Usage
 
 For quick prototypes or applications without a build pipeline, load modules directly via unpkg or any standard CDN:
 
 ```html
-<script type="module" src="https://unpkg.com/@ronna/spark-ui@0.3.8/public/cdn/v1/index.js"></script>
+<script type="module" src="https://unpkg.com/@ronna/spark-ui@0.3.6/public/cdn/v1/index.js"></script>
 
+<!-- Use components immediately in your markup -->
 <spark-notifier type="success" duration="3000">Hello from CDN!</spark-notifier>
 ```
 
